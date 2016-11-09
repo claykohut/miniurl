@@ -34,7 +34,7 @@ angular.module('api.miniUrl', [])
         	.success(function(response){
         		console.log('got success! ', response)
         		self.loading = false
-        		self.results.unshift(response.data)
+        		self.results.push(response.data)
         		self.urlData.longUrl = ''
         		console.log('self results? ', self.results)
         		defer.resolve(self.results);

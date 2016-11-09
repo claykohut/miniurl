@@ -26,7 +26,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
                   } else {
                   	window.location = '/'
                   }
-                  console.log("got data!", initData)
+                  //console.log("got data!", initData)
                   return initData;
               })
         }]
