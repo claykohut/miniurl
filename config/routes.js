@@ -8,6 +8,6 @@ module.exports = function(app) {
 
     var api = require('../app/controllers/api');
 
-    app.post('/api/test', api.testCall);
+    app.post('/api/makeUrlMini', api.makeUrlMini);
 
 };

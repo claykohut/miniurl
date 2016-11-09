@@ -5,8 +5,4 @@ angular.module('ctrl.home', ['ngRoute'])
 
 	console.log('in home!')
 
-	$http.post('api/test').then(function(response, data){
-		console.log('did it! ', response.data)
-	})
-
 }]);
