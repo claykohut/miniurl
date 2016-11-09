@@ -1,0 +1,27 @@
+.header-wrap {
+	text-align: center;
+	margin: 20px 0;
+	font-size: 32px;
+}
+
+.search-wrap {
+	text-align: center;
+}
+
+.form-input,
+.form-button {
+	display: inline-block;
+	float:left;
+}
+
+.form-input {
+	width:85%;
+}
+
+.form-button {
+	width:15%;
+}
+
+.list-item .score {
+	float: right;
+}
