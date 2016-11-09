@@ -37,6 +37,10 @@ exports.lookupShortCode = function(req, res){
   })
   .exec(function(err, data){
     console.log("err ", err, ' data ', data )
+    if( err || ! data ){
+      res.send({ error: true, code: 'invalid_shortcode', message: 'code not found!'})
+      return false
+    }
     res.send({success: true, url: data.longUrl })
   })
 
