@@ -12,9 +12,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   })
   .when('/:shortcode', {
 	resolve: {
-    	lookupShortCode: ['$q', '$http',  function($q, $http) {
+    	lookupShortCode: ['$q', '$http', '$route',  function($q, $http, $route) {
           return $http
-              .get('api/lookupShortCode', { params: { shortcode: 'short' }} )
+              .get('api/lookupShortCode', { params: { shortcode: $route.current.params.shortcode }} )
               .then(function(response){
                   var initData = response.data
                   if( initData.url ){
