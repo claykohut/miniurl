@@ -31,5 +31,14 @@ exports.makeUrlMini = function(req, res){
 
 exports.lookupShortCode = function(req, res){
   console.log('short code lookup! ', req.query , ' code: ', req.query.shortcode  )
-  res.send({success: true, url: 'https://google.com'})
+  
+  MiniUrl.findOne({
+    shortCode: req.query.shortcode
+  })
+  .exec(function(err, data){
+    console.log("err ", err, ' data ', data )
+    res.send({success: true, url: data.longUrl })
+  })
+
+  
 }

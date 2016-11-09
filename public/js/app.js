@@ -18,7 +18,11 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
               .then(function(response){
                   var initData = response.data
                   if( initData.url ){
-                  	window.location = initData.url;
+                  	var externalUrl = initData.url
+                  	if( externalUrl.indexOf('http://') == -1 && externalUrl.indexOf('https://') == -1 ){
+                  		externalUrl = 'http://'+ externalUrl
+                  	}
+                  	window.location = externalUrl;
                   } else {
                   	window.location = '/'
                   }
