@@ -11,13 +11,30 @@ angular.module('api.miniUrl', [])
 
 		var self = this
 
+        var errorResponse = false
+
+        if( this.loading ){
+            errorResponse = { code: 'already_loading', message: 'Please wait for current request to finish'}
+        } else if(self.urlData.longUrl == '') {
+             errorResponse = { code: 'no_url', message: 'Please enter a url'}
+        }// } else if( ! validUrl ){
+        //     errorResponse = { code: 'invalid_url', message: 'Please enter a valid url'}
+        // }
+
+        if( errorResponse ){
+            errorResponse.error = true
+            errorResponse.active = true
+            console.log('returning error... ', errorResponse)
+            return errorResponse
+        }
+
 		self.loading = true
 
         $http.post('api/makeUrlMini', { longUrl: thisUrl })
         	.success(function(response){
         		console.log('got success! ', response)
         		self.loading = false
-        		self.results.push(response.data)
+        		self.results.unshift(response.data)
         		self.urlData.longUrl = ''
         		console.log('self results? ', self.results)
         		defer.resolve(self.results);
