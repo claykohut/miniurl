@@ -1,1 +1,41 @@
 angular.module('ui.common', [])
+.directive('loadingSpinner', function() {
+  return {
+    restrict: 'E',
+    transclude: true,
+    replace: true,
+    templateUrl: 'templates/ui/spinner.html',
+    scope: {
+    	isActive: '='
+    },
+    link: function(scope, elem, attrs){
+
+    }
+  };
+})
+.directive('listWrap', function() {
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: 'templates/ui/list.html',
+    scope: {
+       listItems: '='
+    },
+    link: function(scope, elem, attrs){
+
+    }
+  };
+})
+.filter('displayUrl', function($location) {
+
+  return function(input) {
+
+    var output;
+
+    output = $location.absUrl() + input
+
+    return output;
+
+  }
+
+});

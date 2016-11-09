@@ -1,0 +1,6 @@
+<div class="list-wrap">
+	<div class="list-item" ng-repeat="item in listItems | orderBy: '-score'">
+		<span class="name">{{ item.shortCode | displayUrl }}</span>
+		<span class="score">{{ item.score }}</span>
+	</div>
+</div>

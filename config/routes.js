@@ -10,4 +10,6 @@ module.exports = function(app) {
 
     app.post('/api/makeUrlMini', api.makeUrlMini);
 
+    app.get('/api/lookupShortCode', api.lookupShortCode);
+
 };

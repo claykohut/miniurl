@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
 
 var miniUrlSchema  = new Schema({
 	longUrl: { type: String, default: '' },
-	shortId: {
+	shortCode: {
 	    type: String,
 	    'default': shortid.generate
 	}

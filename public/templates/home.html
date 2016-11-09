@@ -16,6 +16,8 @@
 		</div>
 
 		<div class="error-message-wrap" ng-if="miniUrl.hasError">{{ miniUrl.errorData.message }}</div>
+
+		<list-wrap ng-if="miniUrl.hasResults" class="results-list" list-items="miniUrl.results"></list-wrap>
 		
 	</div>
 </div>

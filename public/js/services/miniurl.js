@@ -1,9 +1,8 @@
 angular.module('api.miniUrl', [])
-.factory('miniUrl', function($http, $q){
+.factory('miniUrl', function($http, $q, $location){
 
 	var urlData = {
-		longUrl: '',
-		shortUrl: ''
+		longUrl: ''
 	}
 
 	var makeUrlMini = function(thisUrl){
@@ -16,9 +15,11 @@ angular.module('api.miniUrl', [])
 
         $http.post('api/makeUrlMini', { longUrl: thisUrl })
         	.success(function(response){
-        		console.log('go success! ', response)
+        		console.log('got success! ', response)
         		self.loading = false
-        		self.results = response.data || []
+        		self.results.push(response.data)
+        		self.urlData.longUrl = ''
+        		console.log('self results? ', self.results)
         		defer.resolve(self.results);
         	})
         	.error(function(err){
@@ -29,7 +30,7 @@ angular.module('api.miniUrl', [])
         	})
 
 		return defer.promise
-		console.log('do it!')
+
 	}
 
     return {
@@ -37,6 +38,13 @@ angular.module('api.miniUrl', [])
     	isLoading: false,
     	hasError: false,
     	results: [],
+    	get hasResults(){
+    		if( this.results && this.results.length > 0){
+    			return true
+    		} else {
+    			return false
+    		}
+    	},
     	makeUrlMini: makeUrlMini
     };
 

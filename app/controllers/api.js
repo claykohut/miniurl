@@ -28,3 +28,8 @@ exports.makeUrlMini = function(req, res){
       })
 
 }
+
+exports.lookupShortCode = function(req, res){
+  console.log('short code lookup!')
+  res.send({success: true, url: 'https://google.com'})
+}
