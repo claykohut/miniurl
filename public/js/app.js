@@ -9,7 +9,11 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
  $routeProvider.when('/', {
     templateUrl: 'templates/home.html',
     controller: 'HomeCtrl'
-  });
+  })
+  .when('/:shortcode', {
+    templateUrl: 'templates/home.html',
+    controller: 'HomeCtrl'
+  })
 
-  $routeProvider.otherwise({redirectTo: '/'});
+ // $routeProvider.otherwise({redirectTo: '/'});
 }])

@@ -36,6 +36,7 @@ angular.module('api.miniUrl', [])
     	urlData: urlData,
     	isLoading: false,
     	hasError: false,
+    	results: [],
     	makeUrlMini: makeUrlMini
     };
 
