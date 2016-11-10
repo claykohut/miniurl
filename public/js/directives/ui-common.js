@@ -33,7 +33,7 @@ angular.module('ui.common', [])
 
     var output;
 
-    output = $location.absUrl() + input
+    output = 'http://' + $location.host() + ':' + $location.port() + '/#/' + input
 
     return output;
 
