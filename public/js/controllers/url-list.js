@@ -3,4 +3,6 @@ angular.module('ctrl.url-list', ['ngRoute'])
 
 	console.log('in url list! ', urlListData)
 
+	$scope.listData = urlListData.data
+
 }]);

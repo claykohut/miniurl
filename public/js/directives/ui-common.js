@@ -19,7 +19,8 @@ angular.module('ui.common', [])
     replace: true,
     templateUrl: 'templates/ui/list.html',
     scope: {
-       listItems: '='
+       listItems: '=',
+       showExtraData: '='
     },
     link: function(scope, elem, attrs){
 
@@ -33,6 +34,17 @@ angular.module('ui.common', [])
     var output;
 
     output = $location.absUrl() + input
+
+    return output;
+
+  }
+
+})
+.filter('displayDate', function() {
+
+  return function(input) {
+
+    var output;
 
     return output;
 

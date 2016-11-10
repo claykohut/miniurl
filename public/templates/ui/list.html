@@ -1,8 +1,10 @@
 <div class="list-wrap">
 	<div class="list-item" ng-repeat="item in listItems | orderBy: '-score'">
-		<span class="long-url">{{ item.longUrl }}</span>
-		<a class="mini-url" href="{{ item.shortCode | displayUrl }}" target="_blank">{{ item.shortCode | displayUrl }}</a>
-		<span class="redirect-count">{{ item.redirects }}</span>
-		<span class="date">{{ item.created }}</span>
+		<div class="url-wrap">
+			<span class="long-url">{{ item.longUrl }}</span>
+			<a class="mini-url" href="{{ item.shortCode | displayUrl }}" target="_blank">{{ item.shortCode | displayUrl }}</a>
+		</div>
+		<div ng-if="showExtraData" class="redirect-count">Redirects: {{ item.redirects }}</div>
+		<div ng-if="showExtraData" class="date">Date: {{ item.created | displayDate }}</div>
 	</div>
 </div>
