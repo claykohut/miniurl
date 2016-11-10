@@ -1,15 +1,21 @@
 'use strict';
 
 var mongoose = require('mongoose')
+var validator = require('validator');
 
 var MiniUrl = mongoose.model('MiniUrl')
 
 exports.makeUrlMini = function(req, res){
 
 	  if( ! req.body || ! req.body.longUrl ){
-	  	res.send({error: true, code: 'no_url', message: 'Please send url to shorten!'})
+	  	res.status(300).send({ error: 'Please send url to shorten!', code: 'no_url' })
 	  	return false
 	  }
+
+    if( ! validator.isURL(req.body.longUrl) ){
+      res.status(300).send({ error: 'Please enter a valid url like google.com or http://reddit.com', code: 'invalid_url' })
+      return false
+    }
 
 	  var newUrl = new MiniUrl({ 
         longUrl: req.body.longUrl
@@ -19,7 +25,7 @@ exports.makeUrlMini = function(req, res){
         console.log('responnse from save url? ', thisUrlData)
         
         if( err || ! thisUrlData ){
-        	res.send({ error: true, code: 'error_saving', message: 'error saving url!'})
+          res.status(300).send({ error: 'error saving url!', code: 'error_saving' })
         	return false
         }
 

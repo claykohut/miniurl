@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "angular": "^1.5.8",
-    "angular-route": "^1.5.8"
+    "angular-route": "^1.5.8",
+    "validator-js": "^6.1.0"
   }
 }

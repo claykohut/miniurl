@@ -18,9 +18,9 @@ angular.module('api.miniUrl', [])
         if( this.loading ){
             errorResponse = { code: 'already_loading', message: 'Please wait for current request to finish'}
         } else if(self.urlData.longUrl == '') {
-             errorResponse = { code: 'no_url', message: 'Please enter a url to shorten'}
-        } else if( ! self.form.input.$valid ){
-            errorResponse = { code: 'invalid_url', message: 'Please enter a valid url like http://google.com - make sure to include http://'}
+            errorResponse = { code: 'no_url', message: 'Please enter a url to shorten'}
+        } else if( ! validator.isURL(thisUrl) ){
+            errorResponse = { code: 'invalid_url', message: 'Please enter a valid url like google.com or http://reddit.com'}
         }
 
         if( errorResponse ){
@@ -31,7 +31,7 @@ angular.module('api.miniUrl', [])
             return errorResponse
         }
 
-        self.errorData = {}
+        self.errorData.active = false
 		self.loading = true
 
         $http.post('api/makeUrlMini', { longUrl: thisUrl })
@@ -44,9 +44,9 @@ angular.module('api.miniUrl', [])
         		defer.resolve(self.results);
         	})
         	.error(function(err){
-        		console.log('got error! ', err)
+                self.errorData.message = err.error
+                self.errorData.active = true
         		self.loading = false
-        		self.results = []
         		defer.resolve(err)
         	})
 
