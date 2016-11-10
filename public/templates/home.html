@@ -4,7 +4,7 @@
 
 		<div class="search-bar-wrap">
 			<form name="miniUrl.form" class="form-input">
-				<input type="text" name="input" ng-pattern="regex" required="true" ng-readonly="miniUrl.isLoading" class="long-input" placeholder="Input Long Url (https://example.com)" ng-model="miniUrl.urlData.longUrl" ng-enter="miniUrl.makeUrlMini(miniUrl.urlData.longUrl)">
+				<input type="url" name="input" required="true" ng-readonly="miniUrl.isLoading" ng-model-options="{allowInvalid: true}" class="long-input" placeholder="Input Long Url (https://example.com)" ng-model="miniUrl.urlData.longUrl" ng-enter="miniUrl.makeUrlMini(miniUrl.urlData.longUrl)">
 				<i></i>
 			</form>
 			<div class="form-button">

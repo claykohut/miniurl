@@ -14,12 +14,13 @@ angular.module('api.miniUrl', [])
         var errorResponse = false
         self.errorData.active = false
 
+
         if( this.loading ){
             errorResponse = { code: 'already_loading', message: 'Please wait for current request to finish'}
         } else if(self.urlData.longUrl == '') {
              errorResponse = { code: 'no_url', message: 'Please enter a url to shorten'}
         } else if( ! self.form.input.$valid ){
-            errorResponse = { code: 'invalid_url', message: 'Please enter a valid url like google.com or http://reddit.com'}
+            errorResponse = { code: 'invalid_url', message: 'Please enter a valid url like http://google.com - make sure to include http://'}
         }
 
         if( errorResponse ){

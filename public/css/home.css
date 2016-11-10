@@ -22,10 +22,6 @@
 	width:15%;
 }
 
-.list-item .score {
-	float: right;
-}
-
 .error-message-wrap {
 	width: 100%;
     float: left;

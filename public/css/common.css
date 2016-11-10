@@ -97,20 +97,6 @@ body {
     background: #ff3d3d;
 }
 
-.list-wrap {
-    float: left;
-    width: 100%;
-}
-
-.list-wrap .list-item {
-    width: 100%;
-    float: left;
-    padding: 16px 20px;
-}
-
-.list-wrap .list-item:nth-child(even) {
-    background: #F2F6FA;
-}
 
 @keyframes spin {
   to { 
