@@ -12,4 +12,6 @@ module.exports = function(app) {
 
     app.get('/api/lookupShortCode', api.lookupShortCode);
 
+    app.get('/api/getAllUrls', api.getAllUrls);
+
 };

@@ -13,7 +13,9 @@ var miniUrlSchema  = new Schema({
 	shortCode: {
 	    type: String,
 	    'default': shortid.generate
-	}
+	},
+	created: { type: Date, default: Date.now },
+	redirects: { type: Number, default: 0 }
  });
 
 module.exports = mongoose.model('MiniUrl', miniUrlSchema );  
