@@ -46,6 +46,8 @@ angular.module('ui.common', [])
 
     var output;
 
+    output = moment(input).fromNow()
+
     return output;
 
   }

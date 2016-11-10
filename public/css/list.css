@@ -22,3 +22,7 @@
 .mini-url {
 	float: right;
 }
+
+.redirect-count, .date {
+    color: #909090;
+}

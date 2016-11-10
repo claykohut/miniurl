@@ -5,8 +5,10 @@ bower install
 
 to run: grunt
 
-go to: http://localhost:3000/#/
+------
 
+To shorten urls: http://localhost:3000/#/
+To view list of urls: http://localhost:3000/#/all-urls
 
 ------
 
