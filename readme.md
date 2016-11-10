@@ -6,7 +6,7 @@ bower install
 
 ------
 
-(make sure you're running mongodb with mongod)
+(make sure you're running mongodb on port 27017 with mongod)
 
 ------
 
