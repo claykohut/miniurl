@@ -91,6 +91,12 @@ body {
 	-webkit-animation: spin 1s ease-in-out infinite;
 }
 
+
+.error-text {
+    color: #fff;
+    background: #ff3d3d;
+}
+
 .list-wrap {
     float: left;
     width: 100%;

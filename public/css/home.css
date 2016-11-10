@@ -25,3 +25,9 @@
 .list-item .score {
 	float: right;
 }
+
+.error-message-wrap {
+	width: 100%;
+    float: left;
+    padding: 16px 20px;
+}

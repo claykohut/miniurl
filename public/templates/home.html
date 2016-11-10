@@ -3,10 +3,10 @@
 		<div class="header-wrap">Mini Url App</div>
 
 		<div class="search-bar-wrap">
-			<div class="form-input">
-				<input type="text" ng-readonly="miniUrl.isLoading" class="long-input" placeholder="Input Long Url (https://example.com)" ng-model="miniUrl.urlData.longUrl" ng-enter="miniUrl.makeUrlMini(miniUrl.urlData.longUrl)">
+			<form name="miniUrl.form" class="form-input">
+				<input type="text" name="input" ng-pattern="regex" required="true" ng-readonly="miniUrl.isLoading" class="long-input" placeholder="Input Long Url (https://example.com)" ng-model="miniUrl.urlData.longUrl" ng-enter="miniUrl.makeUrlMini(miniUrl.urlData.longUrl)">
 				<i></i>
-			</div>
+			</form>
 			<div class="form-button">
 				<div class="big-button" ng-click="miniUrl.makeUrlMini(miniUrl.urlData.longUrl)">
 					<span class="button-text" ng-class="{'is-hidden': miniUrl.isLoading}">OK</span>
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 
-		<div class="error-message-wrap" ng-if="miniUrl.hasError">{{ miniUrl.errorData.message }}</div>
+		<div class="error-message-wrap error-text" ng-if="miniUrl.hasError">{{ miniUrl.errorData.message }}</div>
 
 		<list-wrap ng-if="miniUrl.hasResults" class="results-list" list-items="miniUrl.results"></list-wrap>
 		
